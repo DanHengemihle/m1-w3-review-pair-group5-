@@ -24,6 +24,11 @@ public class Customer extends Person implements Billable {
 
     @Override
     public double getBalanceDue(Map<String, Double> servicesRendered) {
-        return 0;
+
+        double totalBalance = 0;
+        for (Map.Entry<String, Double> currentServiceRendered : servicesRendered.entrySet()) {
+            totalBalance += currentServiceRendered.getValue();
+        }
+        return totalBalance;
     }
 }
